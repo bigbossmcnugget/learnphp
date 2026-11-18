@@ -53,4 +53,11 @@ class UsersController
         $user->save();
         redirect('/admin/users');
     }
+
+    public function delete()
+    {
+        $user = User::find($_GET['id']);
+        $user->delete();
+        redirect('/admin/users');
+    }
 }

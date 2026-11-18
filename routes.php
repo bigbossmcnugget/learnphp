@@ -31,6 +31,7 @@ Route::get('/admin/users/create', [UsersController::class, 'create']);
 Route::post('/admin/users', [UsersController::class, 'store']);
 Route::get('/admin/users/edit', [UsersController::class, 'edit']);
 Route::post('/admin/users/edit', [UsersController::class, 'update']);
+Route::get('/admin/users/delete', [UsersController::class, 'delete']);
 
 Route::get('/register', [AuthController::class, 'registerForm']);
 Route::post('/register', [AuthController::class, 'register']);
