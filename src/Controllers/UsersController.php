@@ -34,4 +34,23 @@ class UsersController
         $user->save();
         redirect('/admin/users');
     }
+
+    public function edit()
+    {
+        $user = User::find($_GET['id']);
+        view('users/edit', compact('user'));
+    }
+
+    public function update()
+    {
+        $user = User::find($_GET['id']);
+        $user->name = $_POST['name'];
+        $user->email = $_POST['email'];
+        // tühi parooliväli = jäta vana parool alles
+        if (!empty($_POST['password'])) {
+            $user->password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        }
+        $user->save();
+        redirect('/admin/users');
+    }
 }
