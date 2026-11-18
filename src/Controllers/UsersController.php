@@ -12,4 +12,10 @@ class UsersController
         $users = User::all();
         view('users/index', compact('users'));
     }
+
+    public function view()
+    {
+        $user = User::find($_GET['id']);
+        view('users/view', compact('user'));
+    }
 }
