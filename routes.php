@@ -27,6 +27,8 @@ Route::get('/admin/posts/delete', [PostController::class, 'delete']);
 
 Route::get('/admin/users', [UsersController::class, 'index']);
 Route::get('/admin/users/view', [UsersController::class, 'view']);
+Route::get('/admin/users/create', [UsersController::class, 'create']);
+Route::post('/admin/users', [UsersController::class, 'store']);
 
 Route::get('/register', [AuthController::class, 'registerForm']);
 Route::post('/register', [AuthController::class, 'register']);

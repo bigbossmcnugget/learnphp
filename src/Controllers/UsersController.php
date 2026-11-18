@@ -18,4 +18,20 @@ class UsersController
         $user = User::find($_GET['id']);
         view('users/view', compact('user'));
     }
+
+    public function create()
+    {
+        view('users/create');
+    }
+
+    public function store()
+    {
+        $user = new User();
+        $user->name = $_POST['name'];
+        $user->email = $_POST['email'];
+        // parooli ei salvestata kunagi selgelt, ainult hash
+        $user->password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        $user->save();
+        redirect('/admin/users');
+    }
 }
